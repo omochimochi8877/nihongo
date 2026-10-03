@@ -1,16 +1,14 @@
 // ここを書きかえると、サイト全体に反映されます
 
 export const SITE = {
-  name: 'もちもち日本語ノート',
+  name: 'おもちもち日本語ノート',
   tagline: '台湾で2年間教えた日本語教師の「教え方」ノート',
   description:
     '台湾で2年間日本語を教えた経験から、N5〜N3文法の教え方と、学習者がつまずきやすいポイントを紹介します。新人の先生、海外で教える先生向けのサイトです。',
   author: 'おもち',
   lang: 'ja',
-  // noteのURL（決まったらここに入れる。空のときは「準備中」と表示）
-  noteUrl: '',
-  // お問い合わせフォームのURL（Googleフォームなど。空のときは「準備中」と表示）
-  contactFormUrl: '',
+  // noteのURL（空のときは「準備中」と表示）
+  noteUrl: 'https://note.com/omochimochis_jp',
   // Googleアドセンスのパブリッシャーid（例: ca-pub-1234567890）。空なら広告は出ません
   adsenseClient: '',
 };
