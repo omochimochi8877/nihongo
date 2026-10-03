@@ -3,6 +3,8 @@ title: "条件の「なら」の教え方"
 description: "条件の「なら」を教えるときのポイントと、学習者がよくする間違いを紹介します。（と・ば・たら・なら シリーズ④）"
 series: oshiwake
 levels: [N4]
+unit: 18
+order: 4
 date: 2026-10-03
 draft: true
 ---

@@ -15,6 +15,10 @@ const articles = defineCollection({
     draft: z.boolean().default(false),
     lang: z.enum(['ja', 'zh-tw']).default('ja'),
     // この記事専用のnoteリンク（なければサイト共通のnoteリンク）
+    // 「学習の流れ」ページのユニット番号（1〜30）
+    unit: z.number().int().min(1).max(30).optional(),
+    // 同じユニットに記事が何本かあるときの並び順（小さい順）
+    order: z.number().optional(),
     noteUrl: z.string().optional(),
     image: z.string().optional(),
   }),

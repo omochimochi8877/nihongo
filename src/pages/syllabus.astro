@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+import NoteCta from '../components/NoteCta.astro';
+import { url } from '../config';
+import { SYLLABUS } from '../syllabus';
+import { getArticles, slugOf } from '../lib/articles';
+
+const articles = await getArticles();
+const byUnit = (no: number) =>
+  articles
+    .filter((a) => a.data.unit === no)
+    .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+<Base title="学習の流れ（N5〜N3・全30ユニット）" description="N5〜N3の文法を全30ユニットに分けた学習の流れです。活用の形を1つ覚えるたびに、使える文型がまとめて増える順番で並べています。">
+  <div class="page">
+    <h1>学習の流れ<span class="h1-sub">N5〜N3・全30ユニット</span></h1>
+
+    <section class="sheet prose">
+      <h2>このシラバスの考え方</h2>
+      <p>活用の形を1つ覚えたら、その形で作れる文型をまとめて覚えます。たとえば「て形」を覚えたら、「てください・ています・てもいい」を一気に学びます。新しく覚える形は1回で済み、使える文がすぐに増えるので、頭に残りやすくなります。</p>
+      <ul>
+        <li><strong>N5・N4</strong>：新しい「活用の形」ごとに区切る</li>
+        <li><strong>N3</strong>：新しい活用がほとんどないので、「意味のグループ」ごとに区切る</li>
+        <li>いちばん時間をかけるのは「<strong>て形</strong>」と「<strong>条件（と・たら・ば・なら）</strong>」</li>
+      </ul>
+      <p class="small">※N5〜N3の分け方は、市販の対策書でよく使われる目安です（日本語能力試験は2010年以降、公式の文法リストを出していません）。</p>
+    </section>
+
+    <nav class="level-jump" aria-label="レベルへ移動">
+      {SYLLABUS.map((lv) => <a href={`#${lv.level}`}>{lv.level}</a>)}
+    </nav>
+
+    {SYLLABUS.map((lv) => (
+      <section class="level" id={lv.level}>
+        <h2 class="level-title"><span class="level-badge">{lv.level}</span>{lv.title}<span class="level-range">{lv.range}</span></h2>
+        {lv.note && <p class="level-note">{lv.note}</p>}
+        <ol class="flow">
+          {lv.groups.map((g) => (
+            <li class:list={['flow-group', { star: g.star }]}>
+              <h3 class="flow-group-title">
+                {g.title}
+                {g.star && <span class="star-badge">★ いちばん時間をかける</span>}
+              </h3>
+              {g.units.map((u) => {
+                const list = byUnit(u.no);
+                return (
+                  <div class="unit">
+                    <span class="unit-no">{u.no}</span>
+                    <div class="unit-body">
+                      <p class="unit-items">{u.items}</p>
+                      {list.length > 0 && (
+                        <ul class="unit-articles">
+                          {list.map((a) => (
+                            <li><a href={url(`articles/${slugOf(a.id)}/`)}>📝 {a.data.title}</a>{a.data.draft && <span class="tag tag-draft">下書き</span>}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))}
+
+    <p class="level-note">📝 が付いているユニットは、教え方の記事があります。記事は少しずつ増やしていきます。</p>
+    <NoteCta />
+  </div>
+</Base>

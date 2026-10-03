@@ -3,6 +3,8 @@ title: "と・ば・たら・ならの教え分け"
 description: "条件の「と・ば・たら・なら」は学習者が一番迷う文法の一つです。どう教え分けるとよいか、教室での例と一緒に紹介します。"
 series: oshiwake
 levels: [N4, N3]
+unit: 18
+order: 5
 date: 2026-10-03
 draft: true
 ---

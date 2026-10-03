@@ -3,6 +3,8 @@ title: "条件の「と」の教え方"
 description: "条件の「と」を教えるときのポイントと、学習者がよくする間違いを紹介します。（と・ば・たら・なら シリーズ①）"
 series: oshiwake
 levels: [N4]
+unit: 18
+order: 1
 date: 2026-10-03
 draft: true
 ---

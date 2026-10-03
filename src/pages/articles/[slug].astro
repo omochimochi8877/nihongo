@@ -35,6 +35,7 @@ const jsonLd = {
       <div class="card-tags">
         <a class="tag tag-series" href={url(`articles/?series=${d.series}`)}>{seriesName(d.series)}</a>
         {d.levels.map((l) => <a class="tag tag-level" href={url(`articles/?level=${l}`)}>{l}</a>)}
+        {d.unit && <a class="tag tag-unit" href={url('syllabus/')}>ユニット{d.unit}</a>}
         {d.draft && <span class="tag tag-draft">下書き（公開されません）</span>}
       </div>
       <h1>{d.title}</h1>

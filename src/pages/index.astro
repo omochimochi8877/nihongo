@@ -21,6 +21,15 @@ const articles = (await getArticles()).slice(0, 6);
   </section>
 
   <section class="section">
+    <h2 class="section-title">学習の流れ</h2>
+    <a class="flow-promo" href={url('syllabus/')}>
+      <strong>N5〜N3・全30ユニット</strong>
+      <span>活用を1つ覚えるたびに、使える文型がまとめて増える順番です。どの順番で教えるか迷ったときに。</span>
+      <span class="flow-promo-steps"><b>N5</b> 活用を一つずつ → <b>N4</b> 新しい活用＋比較 → <b>N3</b> 意味のグループ</span>
+    </a>
+  </section>
+
+  <section class="section">
     <h2 class="section-title">シリーズ</h2>
     <ul class="series-list">
       {SERIES.map((s) => (
