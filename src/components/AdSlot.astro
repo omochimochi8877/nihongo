@@ -1,0 +1,11 @@
+---
+// 広告の置き場所。SITE.adsenseClient と slot を入れると広告が出ます
+import { SITE } from '../config';
+const { slot = '' } = Astro.props;
+---
+{SITE.adsenseClient && slot && (
+  <div class="ad">
+    <ins class="adsbygoogle" style="display:block" data-ad-client={SITE.adsenseClient} data-ad-slot={slot} data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script is:inline>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+)}

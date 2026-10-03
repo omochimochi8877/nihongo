@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+---
+<Base title="お問い合わせ" description="もちもち日本語ノートへのお問い合わせはこちらから。">
+  <article class="sheet page prose">
+    <h1>お問い合わせ</h1>
+    <p>記事の感想、教材についての質問、お仕事のご相談などは、下のフォームからお送りください。</p>
+    {SITE.contactFormUrl
+      ? <p><a class="btn" href={SITE.contactFormUrl} target="_blank" rel="noopener">お問い合わせフォームを開く</a></p>
+      : <p class="empty">お問い合わせフォームは準備中です。</p>}
+    <p>お返事までに数日かかることがあります。ご了承ください。</p>
+  </article>
+</Base>

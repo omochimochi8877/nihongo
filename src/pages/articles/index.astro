@@ -1,0 +1,66 @@
+---
+import Base from '../../layouts/Base.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { SERIES, LEVELS } from '../../config';
+import { getArticles } from '../../lib/articles';
+const articles = await getArticles();
+---
+<Base title="記事一覧" description="N5〜N3文法の教え方の記事一覧です。シリーズ別・レベル別に絞り込めます。">
+  <div class="page">
+    <h1>記事一覧</h1>
+    <div class="filters" id="filters">
+      <div class="filter-row" data-group="series">
+        <span class="filter-label">シリーズ</span>
+        <button class="chip" type="button" data-value="" aria-pressed="true">すべて</button>
+        {SERIES.map((s) => <button class="chip" type="button" data-value={s.id} aria-pressed="false">{s.short}</button>)}
+      </div>
+      <div class="filter-row" data-group="level">
+        <span class="filter-label">レベル</span>
+        <button class="chip" type="button" data-value="" aria-pressed="true">すべて</button>
+        {LEVELS.map((l) => <button class="chip" type="button" data-value={l} aria-pressed="false">{l}</button>)}
+      </div>
+    </div>
+    <div class="cards" id="list">
+      {articles.map((a) => <ArticleCard article={a} />)}
+    </div>
+    <p class="empty" id="empty" hidden={articles.length > 0}>この条件の記事はまだありません。</p>
+  </div>
+  <script>
+    const state = { series: '', level: '' };
+    const params = new URLSearchParams(location.search);
+    state.series = params.get('series') ?? '';
+    state.level = params.get('level') ?? '';
+
+    function apply() {
+      document.querySelectorAll<HTMLElement>('#filters .filter-row').forEach((row) => {
+        const group = row.dataset.group as 'series' | 'level';
+        row.querySelectorAll<HTMLButtonElement>('.chip').forEach((b) => {
+          b.setAttribute('aria-pressed', String(b.dataset.value === state[group]));
+        });
+      });
+      let shown = 0;
+      document.querySelectorAll<HTMLElement>('#list .card').forEach((card) => {
+        const ok =
+          (!state.series || card.dataset.series === state.series) &&
+          (!state.level || (card.dataset.levels ?? '').split(' ').includes(state.level));
+        card.hidden = !ok;
+        if (ok) shown++;
+      });
+      document.getElementById('empty')!.hidden = shown > 0;
+      const q = new URLSearchParams();
+      if (state.series) q.set('series', state.series);
+      if (state.level) q.set('level', state.level);
+      history.replaceState(null, '', q.toString() ? `?${q}` : location.pathname);
+    }
+
+    document.querySelectorAll<HTMLElement>('#filters .filter-row').forEach((row) => {
+      row.addEventListener('click', (e) => {
+        const b = (e.target as HTMLElement).closest<HTMLButtonElement>('.chip');
+        if (!b) return;
+        state[row.dataset.group as 'series' | 'level'] = b.dataset.value ?? '';
+        apply();
+      });
+    });
+    apply();
+  </script>
+</Base>

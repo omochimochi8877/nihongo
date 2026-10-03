@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../config';
+---
+<Base title="プロフィール" description="このサイトを書いている日本語教師・おもちのプロフィールです。">
+  <article class="sheet page prose">
+    <h1>プロフィール</h1>
+    <div class="profile-mini">
+      <div class="avatar" aria-hidden="true">🍡</div>
+      <div><p><strong>おもち</strong><br />日本語教師</p></div>
+    </div>
+    <h2>台湾で2年間、日本語を教えました</h2>
+    <p>台湾の教室で2年間、日本語を教えてきました。毎日の授業の中で、台湾の学習者がつまずきやすいところや、うまく伝わった教え方を少しずつ記録してきました。</p>
+    <h2>このサイトで書いていること</h2>
+    <ul>
+      <li>N5〜N3の文法の教え方</li>
+      <li>台湾人学習者がよくする間違いと、その理由</li>
+      <li>似ている文法の教え分け</li>
+      <li>授業の作り方、文化体験授業のアイデア</li>
+      <li>海外で日本語を教えるということ</li>
+    </ul>
+    <p>文法の説明だけでなく、実際の教室であったことを必ず入れるようにしています。</p>
+    <h2>教材について</h2>
+    <p>N2の教案とワークシートを、noteで販売しています。詳しくは<a href={url('note/')}>教材の紹介ページ</a>をご覧ください。</p>
+  </article>
+</Base>

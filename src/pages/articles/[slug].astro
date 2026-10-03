@@ -1,0 +1,56 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import NoteCta from '../../components/NoteCta.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import { seriesName, url } from '../../config';
+import { getArticles, slugOf } from '../../lib/articles';
+
+export async function getStaticPaths() {
+  const articles = await getArticles();
+  return articles.map((article) => ({
+    params: { slug: slugOf(article.id) },
+    props: { article, related: articles.filter((a) => a.id !== article.id && a.data.series === article.data.series).slice(0, 3) },
+  }));
+}
+const { article, related } = Astro.props;
+const d = article.data;
+const { Content } = await render(article);
+const fmt = (x: Date) => x.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: d.title,
+  description: d.description,
+  datePublished: d.date.toISOString(),
+  dateModified: (d.updated ?? d.date).toISOString(),
+  author: { '@type': 'Person', name: 'おもち' },
+};
+---
+<Base title={d.title} description={d.description} image={d.image} type="article" noindex={d.draft}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
+  <article class="sheet">
+    <header class="article-head">
+      <div class="card-tags">
+        <a class="tag tag-series" href={url(`articles/?series=${d.series}`)}>{seriesName(d.series)}</a>
+        {d.levels.map((l) => <a class="tag tag-level" href={url(`articles/?level=${l}`)}>{l}</a>)}
+        {d.draft && <span class="tag tag-draft">下書き（公開されません）</span>}
+      </div>
+      <h1>{d.title}</h1>
+      <p class="meta">
+        <time datetime={d.date.toISOString()}>{fmt(d.date)}</time>
+        {d.updated && <> ・ 更新 <time datetime={d.updated.toISOString()}>{fmt(d.updated)}</time></>}
+      </p>
+    </header>
+    <div class="prose"><Content /></div>
+    <AdSlot />
+    <NoteCta href={d.noteUrl} />
+  </article>
+  {related.length > 0 && (
+    <section class="related">
+      <h2 class="section-title">同じシリーズの記事</h2>
+      <div class="cards">{related.map((a) => <ArticleCard article={a} />)}</div>
+    </section>
+  )}
+</Base>

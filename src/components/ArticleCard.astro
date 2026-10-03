@@ -1,0 +1,15 @@
+---
+import { url, seriesName } from '../config';
+import { slugOf } from '../lib/articles';
+const { article } = Astro.props;
+const d = article.data;
+---
+<a class="card" href={url(`articles/${slugOf(article.id)}/`)} data-series={d.series} data-levels={d.levels.join(' ')}>
+  <div class="card-tags">
+    <span class="tag tag-series">{seriesName(d.series)}</span>
+    {d.levels.map((l: string) => <span class="tag tag-level">{l}</span>)}
+    {d.draft && <span class="tag tag-draft">下書き</span>}
+  </div>
+  <h3 class="card-title">{d.title}</h3>
+  <p class="card-desc">{d.description}</p>
+</a>

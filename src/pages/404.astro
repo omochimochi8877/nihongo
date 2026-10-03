@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../config';
+---
+<Base title="ページが見つかりません" noindex>
+  <div class="sheet page">
+    <h1>ページが見つかりません</h1>
+    <p>お探しのページは、移動したか削除された可能性があります。</p>
+    <p><a href={url('')}>トップページへ戻る</a></p>
+  </div>
+</Base>

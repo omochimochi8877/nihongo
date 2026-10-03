@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+---
+<Base title="noteの教材" description="N2の教案とワークシートをnoteで販売しています。授業でそのまま使える教材です。">
+  <article class="sheet page prose">
+    <h1>noteの教材</h1>
+    <p>N2の文法を教える先生向けに、<strong>教案とワークシートのセット</strong>をnoteで販売しています。</p>
+    <h2>こんな先生におすすめ</h2>
+    <ul>
+      <li>N2クラスを初めて担当する先生</li>
+      <li>授業の準備に時間がかかってしまう先生</li>
+      <li>海外で、学習者に合わせた授業を作りたい先生</li>
+    </ul>
+    <h2>セットの中身</h2>
+    <ul>
+      <li>教案：導入 → ドリル → 会話までの授業の流れ</li>
+      <li>ワークシート：学習者に配ってそのまま使える練習問題</li>
+    </ul>
+    <p>教材はすべてオリジナルです。市販の教科書の本文や問題は使っていません。</p>
+    {SITE.noteUrl
+      ? <p><a class="btn" href={SITE.noteUrl} target="_blank" rel="noopener">noteで教材を見る</a></p>
+      : <p class="empty">noteのページは準備中です。</p>}
+  </article>
+</Base>

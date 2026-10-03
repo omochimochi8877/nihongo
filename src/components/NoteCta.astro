@@ -1,0 +1,12 @@
+---
+import { SITE, url } from '../config';
+const { href = SITE.noteUrl } = Astro.props;
+---
+<aside class="note-cta">
+  <p class="note-cta-label">先生向けの教材</p>
+  <p class="note-cta-title">N2の教案・ワークシートはnoteで販売しています</p>
+  <p>授業でそのまま使える教案と、学習者用のワークシートのセットです。</p>
+  {href
+    ? <a class="btn" href={href} target="_blank" rel="noopener">noteで教材を見る</a>
+    : <a class="btn" href={url('note/')}>教材の紹介を見る（準備中）</a>}
+</aside>
