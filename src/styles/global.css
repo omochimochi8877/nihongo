@@ -177,3 +177,5 @@ a.tag { text-decoration: none; }
 .flow-promo span { display: block; font-size: 0.95rem; color: var(--ink-soft); }
 .flow-promo-steps { margin-top: 8px; font-size: 0.88rem !important; }
 .flow-promo-steps b { color: var(--pink); }
+
+.note-cta-more { display: inline-block; margin: 10px 0 0 14px; font-size: 0.9rem; font-weight: 700; }

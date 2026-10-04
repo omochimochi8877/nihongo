@@ -3,10 +3,9 @@ import { SITE, url } from '../config';
 const { href = SITE.noteUrl } = Astro.props;
 ---
 <aside class="note-cta">
-  <p class="note-cta-label">先生向けの教材</p>
-  <p class="note-cta-title">N2の教案・ワークシートをnoteで公開予定です</p>
-  <p>授業でそのまま使える教案と、学習者用のワークシートを準備しています。公開したら、このサイトでお知らせします。</p>
-  {href
-    ? <a class="btn" href={href} target="_blank" rel="noopener">noteを見る</a>
-    : <a class="btn" href={url('note/')}>教材の紹介を見る（準備中）</a>}
+  <p class="note-cta-label">N2クラスの先生へ</p>
+  <p class="note-cta-title">推理小説で学ぶN2連載教材『月見荘の青い手紙』（全12話）をnoteで公開中</p>
+  <p>物語を読みながら、N2の文法と慣用句を学べる教材です。教案・ワークシート・生徒さんに配れるWordファイル（ルビ・英語／中国語訳付き）がついています。</p>
+  <a class="btn" href={href} target="_blank" rel="noopener">noteで教材を見る</a>
+  <a class="note-cta-more" href={url('note/')}>教材の紹介を読む →</a>
 </aside>

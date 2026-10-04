@@ -2,24 +2,26 @@
 import Base from '../layouts/Base.astro';
 import { SITE } from '../config';
 ---
-<Base title="noteの教材" description="N2の教案とワークシートをnoteで公開予定です。授業でそのまま使える教材です。">
+<Base title="noteの教材『月見荘の青い手紙』" description="推理小説を読みながらN2の文法と慣用句を学ぶ連載教材『月見荘の青い手紙』（全12話）。教案・ワークシート・ルビと英語／中国語訳付きのWordファイルつきです。">
   <article class="sheet page prose">
     <h1>noteの教材</h1>
-    <p>N2の文法を教える先生向けに、<strong>教案とワークシートのセット</strong>をnoteで公開する予定です。公開したら、このサイトでお知らせします。</p>
-    <h2>こんな先生におすすめ</h2>
+    <h2>『月見荘の青い手紙』（全12話）</h2>
+    <p>N2クラス向けに、<strong>推理小説を読みながら文法と慣用句を学ぶ</strong>連載教材をnoteで公開しています。</p>
+    <h3>ついているもの</h3>
     <ul>
-      <li>N2クラスを初めて担当する先生</li>
+      <li>教案</li>
+      <li>ワークシート</li>
+      <li>生徒さんに配れるWordファイル（ルビ・英語／中国語訳付き）</li>
+    </ul>
+    <h3>こんな先生におすすめ</h3>
+    <ul>
+      <li>N2クラスを担当していて、文法を楽しく続けて学ばせたい先生</li>
       <li>授業の準備に時間がかかってしまう先生</li>
-      <li>海外で、学習者に合わせた授業を作りたい先生</li>
+      <li>中国語や英語が母語の学習者を教えている先生</li>
     </ul>
-    <h2>セットの中身</h2>
-    <ul>
-      <li>教案：導入 → ドリル → 会話までの授業の流れ</li>
-      <li>ワークシート：学習者に配ってそのまま使える練習問題</li>
-    </ul>
+    <h3>このサイトの練習問題とのつながり</h3>
+    <p>このサイトの初級の練習問題には、『月見荘の青い手紙』と同じ登場人物が出てきます。初級のうちから物語の世界に親しんでもらい、N2で本編に出会えるようにしています。</p>
     <p>教材はすべてオリジナルです。市販の教科書の本文や問題は使っていません。</p>
-    {SITE.noteUrl
-      ? <p><a class="btn" href={SITE.noteUrl} target="_blank" rel="noopener">noteを見る</a></p>
-      : <p class="empty">noteのページは準備中です。</p>}
+    <p><a class="btn" href={SITE.noteUrl} target="_blank" rel="noopener">noteで教材を見る</a></p>
   </article>
 </Base>
