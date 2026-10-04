@@ -1,14 +1,17 @@
 ---
-import { url, seriesName } from '../config';
+import { seriesName, langUrl } from '../config';
 import { slugOf } from '../lib/articles';
 const { article } = Astro.props;
 const d = article.data;
+const zh = d.lang === 'zh-tw';
 ---
-<a class="card" href={url(`articles/${slugOf(article.id)}/`)} data-series={d.series} data-levels={d.levels.join(' ')}>
+<a class="card" href={langUrl(d.lang, `articles/${slugOf(article.id)}/`)} data-series={d.series} data-levels={d.levels.join(' ')}>
   <div class="card-tags">
-    <span class="tag tag-series">{seriesName(d.series)}</span>
+    {zh
+      ? d.unit && <span class="tag tag-unit">第{d.unit}單元</span>
+      : <span class="tag tag-series">{seriesName(d.series)}</span>}
     {d.levels.map((l: string) => <span class="tag tag-level">{l}</span>)}
-    {d.draft && <span class="tag tag-draft">下書き</span>}
+    {d.draft && <span class="tag tag-draft">{zh ? '草稿' : '下書き'}</span>}
   </div>
   <h3 class="card-title">{d.title}</h3>
   <p class="card-desc">{d.description}</p>

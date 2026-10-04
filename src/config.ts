@@ -14,6 +14,19 @@ export const SITE = {
   adsenseClient: '',
 };
 
+// 中国語（繁体字）ページ用
+export const SITE_ZH = {
+  tagline: '給台灣學生的日文文法筆記',
+  description:
+    '日文老師整理的N5〜N3文法筆記。台灣學生常犯的錯誤、為什麼會錯（和中文比較）、記憶小技巧，還有練習題。',
+};
+
+export const LEVEL_ZH: Record<string, string> = {
+  N5: '一個一個學動詞變化',
+  N4: '新的變化＋相似文法比較',
+  N3: '用意思分組學習',
+};
+
 export const SERIES = [
   { id: 'tsumazuki', name: '台湾人のつまずきポイント', short: 'つまずき', desc: '「の」の使いすぎ、自動詞・他動詞など、教室でよく見る間違い' },
   { id: 'oshiwake', name: '似ている文法の教え分け', short: '教え分け', desc: 'と・ば・たら・ならなど、学習者が迷う文法の区別' },
@@ -36,4 +49,9 @@ export function url(path = '') {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   const p = path.replace(/^\//, '');
   return `${base}/${p}`;
+}
+
+// 言語に合わせたリンク（ja: /nihongo/xxx, zh-tw: /nihongo/zh-tw/xxx）
+export function langUrl(lang: string, path = '') {
+  return lang === 'zh-tw' ? url(`zh-tw/${path.replace(/^\//, '')}`) : url(path);
 }

@@ -179,3 +179,9 @@ a.tag { text-decoration: none; }
 .flow-promo-steps b { color: var(--pink); }
 
 .note-cta-more { display: inline-block; margin: 10px 0 0 14px; font-size: 0.9rem; font-weight: 700; }
+
+/* 中文ページ */
+.lang-zh { --font-body: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans JP', sans-serif; --font-head: 'Noto Sans TC', 'Zen Maru Gothic', sans-serif; }
+.lang-switch { margin: 0 0 16px; font-size: 0.9rem; }
+.unit-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 32px; font-size: 0.95rem; }
+.unit-nav a { font-weight: 700; }

@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import NoteCtaZh from '../../components/NoteCtaZh.astro';
+import { LEVELS, LEVEL_ZH, url } from '../../config';
+import { getArticles } from '../../lib/articles';
+const articles = (await getArticles('zh-tw')).sort((a, b) => (a.data.unit ?? 99) - (b.data.unit ?? 99));
+const byLevel = (lv: string) => articles.filter((a) => a.data.levels[0] === lv);
+---
+<Base lang="zh-tw" alt={url('')}>
+  <section class="hero">
+    <h1>台灣學生容易搞錯的日文文法，<br /><span class="marker">用中文</span>一次看懂。</h1>
+    <p>N5〜N3的文法，分成30個單元。每個單元都有：常見錯誤、為什麼會錯（和中文比較）、記憶小技巧，還有練習題。</p>
+  </section>
+
+  <section class="section sheet prose">
+    <h2>怎麼使用這個網站</h2>
+    <ul>
+      <li>從<strong>第1單元</strong>開始，照順序讀最好。每學一個新的動詞變化，能說的句子就會一下子變多。</li>
+      <li>練習題是一個連續的故事：從台灣來日本留學的<strong>リン</strong>，住在宿舍「月見荘」的一年。</li>
+      <li>日文例句保持日文。不會的地方，先看「常見錯誤」的表就好。</li>
+    </ul>
+  </section>
+
+  {LEVELS.map((lv) => (
+    <section class="section" id={lv}>
+      <h2 class="section-title">{lv}：{LEVEL_ZH[lv]}</h2>
+      {byLevel(lv).length
+        ? <div class="cards">{byLevel(lv).map((a) => <ArticleCard article={a} />)}</div>
+        : <p class="empty">準備中</p>}
+    </section>
+  ))}
+
+  <NoteCtaZh />
+</Base>

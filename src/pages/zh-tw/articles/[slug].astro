@@ -1,0 +1,58 @@
+---
+import { render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import NoteCtaZh from '../../../components/NoteCtaZh.astro';
+import AdSlot from '../../../components/AdSlot.astro';
+import { url } from '../../../config';
+import { getArticles, slugOf } from '../../../lib/articles';
+
+export async function getStaticPaths() {
+  const zh = (await getArticles('zh-tw')).sort((a, b) => (a.data.unit ?? 99) - (b.data.unit ?? 99));
+  const ja = await getArticles('ja');
+  return zh.map((article, i) => ({
+    params: { slug: slugOf(article.id) },
+    props: {
+      article,
+      prev: zh[i - 1],
+      next: zh[i + 1],
+      hasJa: ja.some((j) => slugOf(j.id) === slugOf(article.id)),
+    },
+  }));
+}
+const { article, prev, next, hasJa } = Astro.props;
+const d = article.data;
+const slug = slugOf(article.id);
+const { Content } = await render(article);
+const jaUrl = hasJa ? url(`articles/${slug}/`) : undefined;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: d.title,
+  description: d.description,
+  inLanguage: 'zh-Hant-TW',
+  datePublished: d.date.toISOString(),
+  dateModified: (d.updated ?? d.date).toISOString(),
+  author: { '@type': 'Person', name: 'おもち' },
+};
+---
+<Base lang="zh-tw" title={d.title} description={d.description} type="article" noindex={d.draft} alt={jaUrl}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
+  <article class="sheet">
+    <header class="article-head">
+      <div class="card-tags">
+        {d.unit && <a class="tag tag-unit" href={url('zh-tw/')}>第{d.unit}單元</a>}
+        {d.levels.map((l) => <a class="tag tag-level" href={url(`zh-tw/#${l}`)}>{l}</a>)}
+        {d.draft && <span class="tag tag-draft">草稿（不公開）</span>}
+      </div>
+      <h1>{d.title}</h1>
+      {jaUrl && <p class="lang-switch"><a href={jaUrl}>日本語版（給老師的教學筆記）→</a></p>}
+    </header>
+    <div class="prose"><Content /></div>
+    <AdSlot />
+    <nav class="unit-nav" aria-label="單元">
+      {prev ? <a href={url(`zh-tw/articles/${slugOf(prev.id)}/`)}>← 第{prev.data.unit}單元</a> : <span />}
+      {next ? <a href={url(`zh-tw/articles/${slugOf(next.id)}/`)}>第{next.data.unit}單元 →</a> : <span />}
+    </nav>
+    <NoteCtaZh />
+  </article>
+</Base>

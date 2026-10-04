@@ -9,12 +9,18 @@ import { getArticles, slugOf } from '../../lib/articles';
 
 export async function getStaticPaths() {
   const articles = await getArticles();
+  const zh = await getArticles('zh-tw');
   return articles.map((article) => ({
     params: { slug: slugOf(article.id) },
-    props: { article, related: articles.filter((a) => a.id !== article.id && a.data.series === article.data.series).slice(0, 3) },
+    props: {
+      article,
+      related: articles.filter((a) => a.id !== article.id && a.data.series === article.data.series).slice(0, 3),
+      hasZh: zh.some((z) => slugOf(z.id) === slugOf(article.id)),
+    },
   }));
 }
-const { article, related } = Astro.props;
+const { article, related, hasZh } = Astro.props;
+const zhUrl = hasZh ? url(`zh-tw/articles/${slugOf(article.id)}/`) : undefined;
 const d = article.data;
 const { Content } = await render(article);
 const fmt = (x: Date) => x.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -28,7 +34,7 @@ const jsonLd = {
   author: { '@type': 'Person', name: 'おもち' },
 };
 ---
-<Base title={d.title} description={d.description} image={d.image} type="article" noindex={d.draft}>
+<Base title={d.title} description={d.description} image={d.image} type="article" noindex={d.draft} alt={zhUrl}>
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
   <article class="sheet">
     <header class="article-head">
@@ -43,6 +49,7 @@ const jsonLd = {
         <time datetime={d.date.toISOString()}>{fmt(d.date)}</time>
         {d.updated && <> ・ 更新 <time datetime={d.updated.toISOString()}>{fmt(d.updated)}</time></>}
       </p>
+      {zhUrl && <p class="lang-switch"><a href={zhUrl} lang="zh-Hant-TW">中文版（學生用）→</a></p>}
     </header>
     <div class="prose"><Content /></div>
     <AdSlot />

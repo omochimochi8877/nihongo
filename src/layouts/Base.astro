@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { SITE, url } from '../config';
+import { SITE, SITE_ZH, url } from '../config';
 
 interface Props {
   title?: string;
@@ -8,27 +8,43 @@ interface Props {
   image?: string;
   type?: 'website' | 'article';
   noindex?: boolean;
+  lang?: 'ja' | 'zh-tw';
+  // もう一方の言語のページ（あれば言語切り替えリンクと hreflang を出す）
+  alt?: string;
 }
-const { title, description = SITE.description, image, type = 'website', noindex = false } = Astro.props;
-const fullTitle = title ? `${title}｜${SITE.name}` : `${SITE.name}｜${SITE.tagline}`;
+const { title, image, type = 'website', noindex = false, lang = 'ja', alt } = Astro.props;
+const zh = lang === 'zh-tw';
+const description = Astro.props.description ?? (zh ? SITE_ZH.description : SITE.description);
+const tagline = zh ? SITE_ZH.tagline : SITE.tagline;
+const fullTitle = title ? `${title}｜${SITE.name}` : `${SITE.name}｜${tagline}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const altUrl = alt ? new URL(alt, Astro.site) : undefined;
 const ogImage = new URL(image ?? url('og.png'), Astro.site);
 const path = Astro.url.pathname;
-const nav = [
-  { href: url('articles/'), label: '記事一覧' },
-  { href: url('syllabus/'), label: '学習の流れ' },
-  { href: url('note/'), label: '教材' },
-  { href: url('profile/'), label: 'プロフィール' },
-];
+const home = zh ? url('zh-tw/') : url('');
+const nav = zh
+  ? [
+      { href: url('zh-tw/'), label: '全部單元' },
+      { href: alt ?? url(''), label: '日本語' },
+    ]
+  : [
+      { href: url('articles/'), label: '記事一覧' },
+      { href: url('syllabus/'), label: '学習の流れ' },
+      { href: url('note/'), label: '教材' },
+      { href: url('profile/'), label: 'プロフィール' },
+      { href: alt ?? url('zh-tw/'), label: '中文' },
+    ];
 ---
 <!doctype html>
-<html lang={SITE.lang}>
+<html lang={zh ? 'zh-Hant-TW' : 'ja'}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {altUrl && <link rel="alternate" hreflang={zh ? 'zh-Hant-TW' : 'ja'} href={canonical} />}
+    {altUrl && <link rel="alternate" hreflang={zh ? 'ja' : 'zh-Hant-TW'} href={altUrl} />}
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="icon" href={url('favicon.svg')} type="image/svg+xml" />
     <link rel="sitemap" href={url('sitemap-index.xml')} />
@@ -38,24 +54,24 @@ const nav = [
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:locale" content={zh ? 'zh_TW' : 'ja_JP'} />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
+    <link href={`https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Noto+Sans+JP:wght@400;700${zh ? '&family=Noto+Sans+TC:wght@400;700' : ''}&display=swap`} rel="stylesheet" />
     {SITE.adsenseClient && (
       <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}`} crossorigin="anonymous"></script>
     )}
     <slot name="head" />
   </head>
-  <body>
+  <body class={zh ? 'lang-zh' : undefined}>
     <header class="site-header">
       <div class="wrap header-inner">
-        <a class="logo" href={url('')}>
+        <a class="logo" href={home}>
           <span class="logo-mark" aria-hidden="true">お</span>
           <span>{SITE.name}</span>
         </a>
-        <nav class="nav" aria-label="メインメニュー">
+        <nav class="nav" aria-label={zh ? '主選單' : 'メインメニュー'}>
           {nav.map((n) => (
             <a href={n.href} aria-current={path === n.href ? 'page' : undefined}>{n.label}</a>
           ))}
@@ -68,13 +84,22 @@ const nav = [
     <footer class="site-footer">
       <div class="wrap">
         <p class="footer-name">{SITE.name}</p>
-        <nav class="footer-links" aria-label="サイト情報">
-          <a href={url('articles/')}>記事一覧</a>
-          <a href={url('syllabus/')}>学習の流れ</a>
-          <a href={url('note/')}>noteの教材</a>
-          <a href={url('profile/')}>プロフィール</a>
-          <a href={url('privacy/')}>プライバシーポリシー</a>
-        </nav>
+        {zh ? (
+          <nav class="footer-links" aria-label="網站資訊">
+            <a href={url('zh-tw/')}>全部單元</a>
+            <a href={url('')}>日本語版（給老師）</a>
+            <a href={url('privacy/')}>隱私權政策（日文）</a>
+          </nav>
+        ) : (
+          <nav class="footer-links" aria-label="サイト情報">
+            <a href={url('articles/')}>記事一覧</a>
+            <a href={url('syllabus/')}>学習の流れ</a>
+            <a href={url('note/')}>noteの教材</a>
+            <a href={url('profile/')}>プロフィール</a>
+            <a href={url('zh-tw/')}>中文版（學生用）</a>
+            <a href={url('privacy/')}>プライバシーポリシー</a>
+          </nav>
+        )}
         <p class="copy">© {new Date().getFullYear()} {SITE.author}</p>
       </div>
     </footer>
