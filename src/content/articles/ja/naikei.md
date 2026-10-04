@@ -96,4 +96,4 @@ draft: false
 
 </details>
 
-> リンさんが住む下宿のお話です（[ユニット2「リンさんの新しい下宿」](/nihongo/articles/sonzaibun/)から続いています）。大家の千代さんは、noteのN2連載教材『月見荘の青い手紙』にも登場します。
+> リンさんが住む下宿のお話です（[ユニット2「リンさんの新しい下宿」](/nihongo/articles/sonzaibun/)から続いています）。大家の千代さんは、noteのN2連載教材『月見荘の青い手紙』にも登場します。リンさんの話は、[ユニット8「歓迎会での自己紹介」](/nihongo/articles/jishokei/)に続きます。
