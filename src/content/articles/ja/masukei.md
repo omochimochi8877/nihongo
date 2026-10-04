@@ -92,4 +92,4 @@ draft: false
 
 </details>
 
-> この問題は、[ユニット2の「リンさんの新しい下宿」](/nihongo/articles/sonzaibun/)の続きです。蒼さんは大家さんの孫で、noteのN2連載教材『月見荘の青い手紙』にも登場します。
+> この問題は、[ユニット2の「リンさんの新しい下宿」](/nihongo/articles/sonzaibun/)の続きです。蒼さんは大家さんの孫で、noteのN2連載教材『月見荘の青い手紙』にも登場します。リンさんの話は、[ユニット4「リンさんの手紙」](/nihongo/articles/keiyoushi/)に続きます。
