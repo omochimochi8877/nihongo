@@ -18,8 +18,9 @@ export const SERIES = [
   { id: 'tsumazuki', name: '台湾人のつまずきポイント', short: 'つまずき', desc: '「の」の使いすぎ、自動詞・他動詞など、教室でよく見る間違い' },
   { id: 'oshiwake', name: '似ている文法の教え分け', short: '教え分け', desc: 'と・ば・たら・ならなど、学習者が迷う文法の区別' },
   { id: 'jugyo', name: '授業の作り方', short: '授業づくり', desc: '導入→活用ドリル→反復・代入ドリル→会話の流れ' },
-  { id: 'bunka', name: '文化体験授業', short: '文化体験', desc: 'ひな祭り、花札、浴衣などを使った授業' },
-  { id: 'kaigai', name: '海外で教えるリアル', short: '海外のリアル', desc: '海外の教室で働くということ' },
+  // 今はお休み中のシリーズ。使うときは下の2行の // を消す
+  // { id: 'bunka', name: '文化体験授業', short: '文化体験', desc: 'ひな祭り、花札、浴衣などを使った授業' },
+  // { id: 'kaigai', name: '海外で教えるリアル', short: '海外のリアル', desc: '海外の教室で働くということ' },
 ] as const;
 
 export const LEVELS = ['N5', 'N4', 'N3'] as const;
