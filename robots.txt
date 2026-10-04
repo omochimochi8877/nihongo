@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://omochimochi8877.github.io/nihongo/sitemap-index.xml
+Sitemap: https://omochimochis.online/sitemap-index.xml
