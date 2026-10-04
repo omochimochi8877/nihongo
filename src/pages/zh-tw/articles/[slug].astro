@@ -3,7 +3,8 @@ import { render } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import NoteCtaZh from '../../../components/NoteCtaZh.astro';
 import AdSlot from '../../../components/AdSlot.astro';
-import { url } from '../../../config';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { SITE, url } from '../../../config';
 import { getArticles, slugOf } from '../../../lib/articles';
 
 export async function getStaticPaths() {
@@ -32,11 +33,15 @@ const jsonLd = {
   inLanguage: 'zh-Hant-TW',
   datePublished: d.date.toISOString(),
   dateModified: (d.updated ?? d.date).toISOString(),
-  author: { '@type': 'Person', name: 'おもち' },
+  image: new URL(url('og.png'), Astro.site).toString(),
+  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).toString(),
+  author: { '@type': 'Person', name: SITE.author },
+  publisher: { '@type': 'Organization', name: SITE.name, logo: { '@type': 'ImageObject', url: new URL(url('og.png'), Astro.site).toString() } },
 };
 ---
 <Base lang="zh-tw" title={d.title} description={d.description} type="article" noindex={d.draft} alt={jaUrl}>
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
+  <Breadcrumbs label="導覽路徑" items={[{ name: '全部單元', href: url('zh-tw/') }, { name: d.title }]} />
   <article class="sheet">
     <header class="article-head">
       <div class="card-tags">

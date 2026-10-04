@@ -2,11 +2,21 @@
 import Base from '../layouts/Base.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import NoteCta from '../components/NoteCta.astro';
-import { SERIES, url } from '../config';
+import { SITE, SERIES, url } from '../config';
 import { getArticles } from '../lib/articles';
 const articles = (await getArticles()).slice(0, 6);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: new URL(url(''), Astro.site).toString(),
+  description: SITE.description,
+  inLanguage: ['ja', 'zh-Hant-TW'],
+  publisher: { '@type': 'Person', name: SITE.author },
+};
 ---
-<Base>
+<Base alt={url('zh-tw/')}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
   <section class="hero">
     <h1>教室でつまずくポイントを、<br /><span class="marker">先生のノート</span>にまとめました。</h1>
     <p>台湾人の学習者に2年間、日本語を教えてきました。N5〜N3の文法を中心に、教科書だけでは分からない「教え方」と「学習者の間違い」を紹介します。</p>

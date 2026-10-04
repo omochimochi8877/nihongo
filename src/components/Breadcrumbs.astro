@@ -1,0 +1,23 @@
+---
+// パンくずリスト（画面の表示と、Google向けのデータの両方）
+interface Props { items: { name: string; href?: string }[]; label?: string }
+const { items, label = 'パンくずリスト' } = Astro.props;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((it, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: it.name,
+    ...(it.href ? { item: new URL(it.href, Astro.site).toString() } : {}),
+  })),
+};
+---
+<nav class="breadcrumbs" aria-label={label}>
+  <ol>
+    {items.map((it) => (
+      <li>{it.href ? <a href={it.href}>{it.name}</a> : <span aria-current="page">{it.name}</span>}</li>
+    ))}
+  </ol>
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

@@ -186,3 +186,11 @@ a.tag { text-decoration: none; }
 .unit-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 32px; font-size: 0.95rem; }
 .unit-nav a { font-weight: 700; }
 .prose > h2:first-child { margin-top: 0; }
+
+/* パンくず */
+.breadcrumbs { margin: -8px 0 14px; font-size: 0.82rem; color: var(--ink-soft); }
+.breadcrumbs ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2px 0; }
+.breadcrumbs li { display: inline; }
+.breadcrumbs li + li::before { content: '›'; margin: 0 6px; color: var(--line); }
+.breadcrumbs a { color: var(--ink-soft); }
+.breadcrumbs span { display: inline-block; max-width: 18em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: bottom; }
