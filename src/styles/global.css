@@ -185,3 +185,4 @@ a.tag { text-decoration: none; }
 .lang-switch { margin: 0 0 16px; font-size: 0.9rem; }
 .unit-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 32px; font-size: 0.95rem; }
 .unit-nav a { font-weight: 700; }
+.prose > h2:first-child { margin-top: 0; }
