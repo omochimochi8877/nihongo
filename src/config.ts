@@ -7,8 +7,9 @@ export const SITE = {
     '台湾人の学習者に2年間日本語を教えた経験から、N5〜N3文法の教え方と、学習者がつまずきやすいポイントを紹介します。新人の先生、海外で教える先生向けのサイトです。',
   author: 'おもち',
   lang: 'ja',
-  // noteのURL（空のときは「準備中」と表示）
-  noteUrl: 'https://note.com/omochimochis_jp',
+  // noteのURL（記事の最後の案内ボタンは、『月見荘の青い手紙』第1話へ）
+  noteUrl: 'https://note.com/omochimochis_jp/n/n936b2b406180',
+  noteProfileUrl: 'https://note.com/omochimochis_jp',
   // Googleアドセンスのパブリッシャーid（例: ca-pub-1234567890）。空なら広告は出ません
   adsenseClient: '',
 };
