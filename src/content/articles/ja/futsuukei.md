@@ -98,4 +98,4 @@ draft: false
 
 </details>
 
-> この問題の住人たちは、noteのN2連載教材『月見荘の青い手紙』[第1話](https://note.com/omochimochis_jp/n/n936b2b406180)の「住人紹介」と同じ人たちです。N5を終えた学生に「いつかこの話の続きを読めるようになるよ」と伝えるきっかけにもなります。[ユニット9の「居間でのおしゃべり」](/nihongo/articles/takei/)から続いています。
+> この問題の住人たちは、noteのN2連載教材『月見荘の青い手紙』[第1話](https://note.com/omochimochis_jp/n/n936b2b406180)の「住人紹介」と同じ人たちです。N5を終えた学生に「いつかこの話の続きを読めるようになるよ」と伝えるきっかけにもなります。[ユニット9の「居間でのおしゃべり」](/nihongo/articles/takei/)から続いています。リンさんの話は、[ユニット11「遅く帰ってきたリンさん」](/nihongo/articles/toki-noha-ndesu/)に続きます。
