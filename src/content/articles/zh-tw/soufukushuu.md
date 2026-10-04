@@ -23,18 +23,18 @@ draft: false
 
 | 中文 | 日文是 | 分辨的口訣 | 單元 |
 | --- | --- | --- | --- |
-| 給 | あげる／くれる／もらう | 進到「我的圓圈」裡的箭頭是「くれる」 | [17](/nihongo/zh-tw/articles/juju/) |
-| 因為 | から／ので／ために／し | 禮貌用「ので」，列出理由用「し」 | [14](/nihongo/zh-tw/articles/node-noni/) |
-| 可是・明明 | けど／のに／くせに | 情緒溫度計 | [14](/nihongo/zh-tw/articles/node-noni/)・[25](/nihongo/zh-tw/articles/temo-kuseni/) |
-| 即使・就算 | ても／としても | 假設就用「としても」 | [25](/nihongo/zh-tw/articles/temo-kuseni/) |
-| 如果 | と／ば／たら／なら | 不知道就用「たら」 | [18](/nihongo/zh-tw/articles/to-ba-tara-nara/) |
-| 好像 | そうだ／ようだ／みたいだ／らしい | 資訊來自眼睛・頭腦・耳朵？ | [19](/nihongo/zh-tw/articles/souda-youda-rashii/)・[21](/nihongo/zh-tw/articles/suiryou/) |
-| 應該 | はずだ／べきだ／つもりだ | 推測・意見・自己的計畫 | [13](/nihongo/zh-tw/articles/ikoukei/)・[21](/nihongo/zh-tw/articles/suiryou/)・[24](/nihongo/zh-tw/articles/wake-beki/) |
-| 剛 | たところだ／たばかりだ | 時鐘的時間，還是心裡的時間 | [22](/nihongo/zh-tw/articles/jikan-kyokumen/) |
-| 想 | たい／（よ）うと思う／つもりだ | 決心溫度計 | [13](/nihongo/zh-tw/articles/ikoukei/) |
-| 被・讓 | 被動／使役／使役被動 | 誰當主語？ | [20](/nihongo/zh-tw/articles/ukemi-shieki-keigo/)・[28](/nihongo/zh-tw/articles/onegai-hyougen/) |
+| 給 | あげる／くれる／もらう | 進到「我的圓圈」裡的箭頭是「くれる」 | [17](/zh-tw/articles/juju/) |
+| 因為 | から／ので／ために／し | 禮貌用「ので」，列出理由用「し」 | [14](/zh-tw/articles/node-noni/) |
+| 可是・明明 | けど／のに／くせに | 情緒溫度計 | [14](/zh-tw/articles/node-noni/)・[25](/zh-tw/articles/temo-kuseni/) |
+| 即使・就算 | ても／としても | 假設就用「としても」 | [25](/zh-tw/articles/temo-kuseni/) |
+| 如果 | と／ば／たら／なら | 不知道就用「たら」 | [18](/zh-tw/articles/to-ba-tara-nara/) |
+| 好像 | そうだ／ようだ／みたいだ／らしい | 資訊來自眼睛・頭腦・耳朵？ | [19](/zh-tw/articles/souda-youda-rashii/)・[21](/zh-tw/articles/suiryou/) |
+| 應該 | はずだ／べきだ／つもりだ | 推測・意見・自己的計畫 | [13](/zh-tw/articles/ikoukei/)・[21](/zh-tw/articles/suiryou/)・[24](/zh-tw/articles/wake-beki/) |
+| 剛 | たところだ／たばかりだ | 時鐘的時間，還是心裡的時間 | [22](/zh-tw/articles/jikan-kyokumen/) |
+| 想 | たい／（よ）うと思う／つもりだ | 決心溫度計 | [13](/zh-tw/articles/ikoukei/) |
+| 被・讓 | 被動／使役／使役被動 | 誰當主語？ | [20](/zh-tw/articles/ukemi-shieki-keigo/)・[28](/zh-tw/articles/onegai-hyougen/) |
 
-另外還有「開（開く／開ける）」（[第15單元](/nihongo/zh-tw/articles/jidoushi-tadoushi/)）、「會（可能形／ようになる）」（[第12單元](/nihongo/zh-tw/articles/kanoukei/)・[23](/nihongo/zh-tw/articles/koto-you/)）、「在…的時候（間／間に／うちに）」（[第22單元](/nihongo/zh-tw/articles/jikan-kyokumen/)）等等，也可以自己加上去。
+另外還有「開（開く／開ける）」（[第15單元](/zh-tw/articles/jidoushi-tadoushi/)）、「會（可能形／ようになる）」（[第12單元](/zh-tw/articles/kanoukei/)・[23](/zh-tw/articles/koto-you/)）、「在…的時候（間／間に／うちに）」（[第22單元](/zh-tw/articles/jikan-kyokumen/)）等等，也可以自己加上去。
 
 ## 為什麼到最後還是會搞混？
 

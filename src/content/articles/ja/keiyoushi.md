@@ -99,4 +99,4 @@ draft: false
 
 </details>
 
-> この問題は、[ユニット3の「リンさんの日曜日」](/nihongo/articles/masukei/)の続きです。登場人物は、noteのN2連載教材『月見荘の青い手紙』と同じです。リンさんの話は、[ユニット5「蒼さんのお誘い」](/nihongo/articles/masukei-ouyou/)に続きます。
+> この問題は、[ユニット3の「リンさんの日曜日」](/articles/masukei/)の続きです。登場人物は、noteのN2連載教材『月見荘の青い手紙』と同じです。リンさんの話は、[ユニット5「蒼さんのお誘い」](/articles/masukei-ouyou/)に続きます。

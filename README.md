@@ -23,7 +23,6 @@
 ## 後から足せるもの
 
 - 中国語（繁体字）：記事は `src/content/articles/zh-tw/` に入れ、`lang: zh-tw` を付ける（ページは今後作成）
-- 独自ドメイン：`astro.config.mjs` の `site` を変えて `base` を消す
 
 ## 手元で見る（クロードコード用）
 

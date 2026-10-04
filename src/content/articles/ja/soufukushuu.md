@@ -22,18 +22,18 @@ draft: false
 
 | 中国語 | 日本語では | 見分ける合言葉 | ユニット |
 | --- | --- | --- | --- |
-| 給 | あげる／くれる／もらう | 「私の円」に入ってくる矢印は「くれる」 | [17](/nihongo/articles/juju/) |
-| 因為 | から／ので／ために／し | ていねいなら「ので」、理由を並べるなら「し」 | [14](/nihongo/articles/node-noni/) |
-| 可是・明明 | けど／のに／くせに | 感情の温度計 | [14](/nihongo/articles/node-noni/)・[25](/nihongo/articles/temo-kuseni/) |
-| 即使・就算 | ても／としても | 仮定なら「としても」 | [25](/nihongo/articles/temo-kuseni/) |
-| 如果 | と／ば／たら／なら | 迷ったら「たら」 | [18](/nihongo/articles/to-ba-tara-nara/) |
-| 好像 | そうだ／ようだ／みたいだ／らしい | 情報の出どころは目・頭・耳？ | [19](/nihongo/articles/souda-youda-rashii/)・[21](/nihongo/articles/suiryou/) |
-| 應該 | はずだ／べきだ／つもりだ | 推量・意見・自分の予定 | [13](/nihongo/articles/ikoukei/)・[21](/nihongo/articles/suiryou/)・[24](/nihongo/articles/wake-beki/) |
-| 剛 | たところだ／たばかりだ | 時計の時間か、気持ちの時間か | [22](/nihongo/articles/jikan-kyokumen/) |
-| 想 | たい／（よ）うと思う／つもりだ | 決心メーター | [13](/nihongo/articles/ikoukei/) |
-| 被・讓 | 受身／使役／使役受身 | だれを主語にする？ | [20](/nihongo/articles/ukemi-shieki-keigo/)・[28](/nihongo/articles/onegai-hyougen/) |
+| 給 | あげる／くれる／もらう | 「私の円」に入ってくる矢印は「くれる」 | [17](/articles/juju/) |
+| 因為 | から／ので／ために／し | ていねいなら「ので」、理由を並べるなら「し」 | [14](/articles/node-noni/) |
+| 可是・明明 | けど／のに／くせに | 感情の温度計 | [14](/articles/node-noni/)・[25](/articles/temo-kuseni/) |
+| 即使・就算 | ても／としても | 仮定なら「としても」 | [25](/articles/temo-kuseni/) |
+| 如果 | と／ば／たら／なら | 迷ったら「たら」 | [18](/articles/to-ba-tara-nara/) |
+| 好像 | そうだ／ようだ／みたいだ／らしい | 情報の出どころは目・頭・耳？ | [19](/articles/souda-youda-rashii/)・[21](/articles/suiryou/) |
+| 應該 | はずだ／べきだ／つもりだ | 推量・意見・自分の予定 | [13](/articles/ikoukei/)・[21](/articles/suiryou/)・[24](/articles/wake-beki/) |
+| 剛 | たところだ／たばかりだ | 時計の時間か、気持ちの時間か | [22](/articles/jikan-kyokumen/) |
+| 想 | たい／（よ）うと思う／つもりだ | 決心メーター | [13](/articles/ikoukei/) |
+| 被・讓 | 受身／使役／使役受身 | だれを主語にする？ | [20](/articles/ukemi-shieki-keigo/)・[28](/articles/onegai-hyougen/) |
 
-このほか、「開（開く／開ける）」（[ユニット15](/nihongo/articles/jidoushi-tadoushi/)）、「會（可能形／ようになる）」（[ユニット12](/nihongo/articles/kanoukei/)・[23](/nihongo/articles/koto-you/)）、「在…的時候（間／間に／うちに）」（[ユニット22](/nihongo/articles/jikan-kyokumen/)）なども、クラスの状況に合わせて足せます。
+このほか、「開（開く／開ける）」（[ユニット15](/articles/jidoushi-tadoushi/)）、「會（可能形／ようになる）」（[ユニット12](/articles/kanoukei/)・[23](/articles/koto-you/)）、「在…的時候（間／間に／うちに）」（[ユニット22](/articles/jikan-kyokumen/)）なども、クラスの状況に合わせて足せます。
 
 ## なぜ最後に混ざるのか
 
@@ -105,7 +105,7 @@ JLPT形式の問題を、学習者自身が作ります。正解と「ひっか�
 
 > **答えのあとの数字はユニット番号です。**間違えたところのユニットだけを読み直せばいいようにしてあります。**4番**は、「たことはない」（ユニット9の経験の否定）と「わけではない」（ユニット24の部分否定）を比べる応用問題です。「帰りたいと思ったことはない」なら「一度もない」。「帰りたいと思ったわけではない」なら「（寂しかったけれど）帰りたかったというわけではない」という説明になります。問題文の指示に合うのはどちらか、話し合うと盛り上がります。
 
-> この問題は、[ユニット29の「蒼さんとリンさんのLINE」](/nihongo/articles/hanashikotoba/)の続きで、リンさんの一年の最後のお話です。
+> この問題は、[ユニット29の「蒼さんとリンさんのLINE」](/articles/hanashikotoba/)の続きで、リンさんの一年の最後のお話です。
 
 ## N2へ
 

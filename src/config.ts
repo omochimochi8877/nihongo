@@ -44,14 +44,14 @@ export function seriesName(id: string) {
   return SERIES.find((s) => s.id === id)?.name ?? id;
 }
 
-// base（/nihongo/）付きのリンクを作る
+// サイト内のリンクを作る
 export function url(path = '') {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   const p = path.replace(/^\//, '');
   return `${base}/${p}`;
 }
 
-// 言語に合わせたリンク（ja: /nihongo/xxx, zh-tw: /nihongo/zh-tw/xxx）
+// 言語に合わせたリンク（ja: /xxx, zh-tw: /zh-tw/xxx）
 export function langUrl(lang: string, path = '') {
   return lang === 'zh-tw' ? url(`zh-tw/${path.replace(/^\//, '')}`) : url(path);
 }
